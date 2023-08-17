@@ -9,7 +9,7 @@ const Navbar = () => {
   const {currentAccount,connectWallet}=useContext(VotingContext);
   return (
     <div>
-    <navbar className="flex  items-center w-full py-6 backgroundColor">
+    <navbar className="flex justify-between  items-center w-full py-6 backgroundColor">
       <Image src={Logo} width={100} height={60} alt="logo"/>
       <div className="flex flex-1 justify-end items-center mr-4">
         {
@@ -19,7 +19,7 @@ const Navbar = () => {
         }
       </div>
     </navbar>
-    {toogle && <div className="p-6 absolute bg-discount_gradient top-20 right-0 mx-4 my-2 min-w-[140px] bg-[#9a02ac] z-10 rounded-xl sidebar"
+    {toogle && <div className=" w-[140px] p-6 absolute bg-discount_gradient top-20 right-0 mx-4 my-2 min-w-[140px] bg-[#9a02ac] z-10 rounded-xl sidebar"
     >
       <ul className="list-none flex-col  justify-end items-center flex-1 space-y-2">
         <li className="font-medium text-[16px] leading-5 Color"><Link href={{pathname:'/'}}>Home</Link></li>
