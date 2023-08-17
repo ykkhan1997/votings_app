@@ -31,7 +31,7 @@ const Navbar = () => {
                 </div>
             )}
             {currentAccount && openNav && (
-                <ul className="Color cursor-pointer space-y-2 absolute p-6  min-w-[140px] pinkBackground top-20 right-0 mx-4 my-2 rounded-xl z-10">
+                <ul className="absolute Color cursor-pointer space-y-2  p-6  min-w-[140px] pinkBackground top-20 right-0 mx-4 my-2 rounded-xl z-50">
                     <li className="font-medium tracking-wide hover:text-white">
                         <Link href={{pathname:'/'}}>Home</Link>
                     </li>
