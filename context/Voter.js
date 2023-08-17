@@ -178,7 +178,7 @@ const VoterProvider = ({ children }) => {
         pushVoter.push(singleVoterData);
       }
     } catch (error) {
-      toast.warn("Something wrong while fetching voterData");
+      currentAccount && toast.warn("Something wrong while fetching voterData");
       console.log(error);
     }
   };
