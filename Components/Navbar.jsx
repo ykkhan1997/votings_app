@@ -7,9 +7,8 @@ import Link from 'next/link';
 const Navbar = () => {
     const {currentAccount,connectWallet}=useContext(VotingContext);
     const [openToogle,setOpenToogle]=useState(false);
-    const navLinks=["Home","Candidate Registeration","Voter Registeration","VoterList"]
   return (
-    <nav className='flex justify-between items-center w-full py-6 backgroundColor'>
+    <nav className='flex justify-between items-center w-full py-6'>
         <Image src={Logo} alt='Logo' width={100} height={60}/>
         <div className='flex flex-1 justify-end items-center mr-4'>
         {
@@ -20,7 +19,7 @@ const Navbar = () => {
         </div>
         {
             openToogle && (
-                <div className='p-6 absolute bg-[#9a02ac] top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl z-10'>
+                <div className='p-6 absolute  bg-[#9a02ac] top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl'>
                     <ul className='list-none flex-col justify-end items-center flex-1 space-y-4'>
                         <li className='font-poppins font-medium text-[16px] cursor-pointer Color'>
                             <Link href={{pathname:'/'}}>Home</Link>
