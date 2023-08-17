@@ -19,7 +19,7 @@ const Navbar = () => {
         }
       </div>
     </navbar>
-    {toogle && <div className=" w-[140px] p-6 absolute bg-discount_gradient top-20 right-0 mx-4 my-2 min-w-[140px] bg-[#9a02ac] z-10 rounded-xl sidebar"
+    {toogle && <div className=" w-[140px] h-[160px] p-6 absolute bg-discount_gradient top-20 right-0 mx-4 my-2 bg-[#9a02ac] z-10 rounded-xl sidebar"
     >
       <ul className="list-none flex-col  justify-end items-center flex-1 space-y-2">
         <li className="font-medium text-[16px] leading-5 Color"><Link href={{pathname:'/'}}>Home</Link></li>
