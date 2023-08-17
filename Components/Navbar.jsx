@@ -35,9 +35,9 @@ const Navbar = () => {
                     <li className="font-medium tracking-wide hover:text-white">
                         <Link href={{pathname:'/'}}>Home</Link>
                     </li>
-                    <li className="font-medium tracking-wide hover:text-white"><Link href={{pathname:'http://localhost:3000/candidate-registeration'}}>Candidate Registeration</Link></li>
-                    <li className="font-medium tracking-wide hover:text-white"><Link href={{pathname:'http://localhost:3000/voters-registeration'}}>Voter Registeration</Link></li>
-                    <li className="font-medium tracking-wide hover:text-white"><Link href={{pathname:'http://localhost:3000/voterList'}}>Voter List</Link></li>  
+                    <li className="font-medium tracking-wide hover:text-white"><Link href={{pathname:'/candidate-registeration'}}>Candidate Registeration</Link></li>
+                    <li className="font-medium tracking-wide hover:text-white"><Link href={{pathname:'/voters-registeration'}}>Voter Registeration</Link></li>
+                    <li className="font-medium tracking-wide hover:text-white"><Link href={{pathname:'voterList'}}>Voter List</Link></li>  
                 </ul>
             )}
         </div>
