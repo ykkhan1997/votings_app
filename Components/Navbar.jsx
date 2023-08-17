@@ -1,47 +1,45 @@
-'use client'
-import { useContext, useState } from "react";
-import { Logo } from "@/assets";
-import Image from "next/image";
-import React from "react";
-import { VotingContext } from "@/context/Voter";
-import {AiFillLock, AiFillUnlock} from 'react-icons/ai';
-import Link from "next/link";
-
+import React, { useContext, useState } from 'react'
+import Image from 'next/image'
+import { Logo } from '@/assets';
+import { VotingContext } from '@/context/Voter';
+import {AiFillLock,AiFillUnlock} from 'react-icons/ai';
+import Link from 'next/link';
 const Navbar = () => {
-    const [openNav, setOpenNav] = useState(true);
-
-    const openNavigation = () => {
-        setOpenNav(!openNav);
-    }
-
-    const { currentAccount, connectWallet } = useContext(VotingContext);
-    return (
-        <div className="flex absolute backgroundColor w-full py-4  justify-between items-center">
-            <Link href={{pathname:"/"}}><Image src={Logo} alt="Logo" width={100} height={80} className="cursor-pointer"/></Link>
-            {!currentAccount ? (
-                <button className="pinkBackground px-2 py-2 Color" onClick={connectWallet}>
-                    Connect Wallet
-                </button>
-            ) : (
-                <div className="pinkBackground Color px-2 py-2 rounded font-medium tracking-wide inline-flex items-center space-x-2">
-                    <div className="cursor-pointer" onClick={openNavigation}>
-                        {openNav ? <AiFillUnlock /> : <AiFillLock />}
-                    </div>
-                    <div>{currentAccount.slice(0, 10)}....{currentAccount.slice(39)}</div>
-                </div>
-            )}
-            {currentAccount && openNav && (
-                <ul className="absolute Color cursor-pointer space-y-2  p-6  min-w-[140px] pinkBackground top-20 right-0 mx-4 my-2 rounded-xl z-50">
-                    <li className="font-medium tracking-wide hover:text-white">
-                        <Link href={{pathname:'/'}}>Home</Link>
-                    </li>
-                    <li className="font-medium tracking-wide hover:text-white"><Link href={{pathname:'/candidate-registeration'}}>Candidate Registeration</Link></li>
-                    <li className="font-medium tracking-wide hover:text-white"><Link href={{pathname:'/voters-registeration'}}>Voter Registeration</Link></li>
-                    <li className="font-medium tracking-wide hover:text-white"><Link href={{pathname:'voterList'}}>Voter List</Link></li>  
-                </ul>
-            )}
+    const {currentAccount,connectWallet}=useContext(VotingContext);
+    const [openToogle,setOpenToogle]=useState(false);
+    const navLinks=["Home","Candidate Registeration","Voter Registeration","VoterList"]
+  return (
+    <nav className='flex justify-between items-center w-full py-6 backgroundColor'>
+        <Image src={Logo} alt='Logo' width={100} height={60}/>
+        <div className='flex flex-1 justify-end items-center mr-4'>
+        {
+            currentAccount?(<button className='h-12 px-2 py-2 bg-[#9a02ac] Color rounded font-medium tracking-wide inline-flex items-center space-x-2'>{openToogle?<AiFillUnlock onClick={()=>setOpenToogle(false)}/>:<AiFillLock onClick={()=>setOpenToogle(true)}/>}{currentAccount.slice(0,9)}...{currentAccount.slice(39)}</button>)
+            :
+            (<button className='h-12 px-2 py-2 bg-[#9a02ac] Color rounded font-medium tracking-wide' onClick={()=>connectWallet()}>Connect Wallet</button>)
+        }
         </div>
-    );
-};
+        {
+            openToogle && (
+                <div className='p-6 absolute bg-[#9a02ac] top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl z-10'>
+                    <ul className='list-none flex-col justify-end items-center flex-1 space-y-4'>
+                        <li className='font-poppins font-medium text-[16px] cursor-pointer Color'>
+                            <Link href={{pathname:'/'}}>Home</Link>
+                        </li>
+                        <li className='font-poppins font-medium text-[16px] cursor-pointer Color'>
+                        <Link href={{pathname:'/candidate-registeration'}}>Candidate Registeration</Link>
+                        </li>
+                        <li className='font-poppins font-medium text-[16px] cursor-pointer Color'>
+                        <Link href={{pathname:'/voters-registeration'}}>Voters Registeration</Link>
+                        </li>
+                        <li className='font-poppins font-medium text-[16px] cursor-pointer Color'>
+                        <Link href={{pathname:'/voterList'}}>Voter List</Link>
+                        </li>
+                    </ul>
+                </div>
+            )
+        }
+    </nav>
+  )
+}
 
-export default Navbar;
+export default Navbar

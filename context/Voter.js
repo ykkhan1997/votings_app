@@ -57,7 +57,6 @@ const VoterProvider = ({ children }) => {
     }
   },[]);
   useEffect(()=>{
-    connectWallet();
     if(window.ethereum){
       const accountsChanged=async()=>{
         try{

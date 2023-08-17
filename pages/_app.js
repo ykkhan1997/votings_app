@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }) {
     <VoterProvider>
       <ToastContainer/>
       <Navbar/>
-       <div className='backgroundMain'>
+       <div>
        <Component {...pageProps} />
        </div>
     </VoterProvider>
