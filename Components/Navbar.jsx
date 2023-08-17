@@ -8,7 +8,8 @@ const Navbar = () => {
   const [toogle, setToogle] = useState(true);
   const {currentAccount,connectWallet}=useContext(VotingContext);
   return (
-    <navbar className="flex justify-between items-center w-full py-6 backgroundColor">
+    <div>
+    <navbar className="flex  items-center w-full py-6 backgroundColor">
       <Image src={Logo} width={100} height={60} alt="logo"/>
       <div className="flex flex-1 justify-end items-center mr-4">
         {
@@ -16,20 +17,19 @@ const Navbar = () => {
             :
             (<button className="bg-[#9a02ac] Color h-12  items-center  px-4 py-2 rounded font-medium tracking-wide inline-flex" onClick={()=>connectWallet()}>Connect Wallet</button>)
         }
-        <div
-          className={`${
-            !toogle ? "hidden" : "flex"
-          } p-6 absolute bg-discount_gradient top-20 right-0 mx-4 my-2 min-w-[140px] bg-[#9a02ac] z-10 rounded-xl sidebar`}
-        >
-          <ul className="list-none flex-col  justify-end items-center flex-1 space-y-2">
-            <li className="font-medium text-[16px] leading-5 Color"><Link href={{pathname:'/'}}>Home</Link></li>
-            <li className="font-medium text-[16px] leading-5 Color"><Link href={{pathname:'/candidate-registeration'}}>Candidate Reg</Link></li>
-            <li className="font-medium text-[16px] leading-5 Color"><Link href={{pathname:'/voters-registeration'}}>Voter Reg</Link></li>
-            <li className="font-medium text-[16px] leading-5 Color"><Link href={{pathname:'/voterList'}}>Voter List</Link></li>
-          </ul>
-        </div>
       </div>
     </navbar>
+    {toogle && <div className="p-6 absolute bg-discount_gradient top-20 right-0 mx-4 my-2 min-w-[140px] bg-[#9a02ac] z-10 rounded-xl sidebar"
+    >
+      <ul className="list-none flex-col  justify-end items-center flex-1 space-y-2">
+        <li className="font-medium text-[16px] leading-5 Color"><Link href={{pathname:'/'}}>Home</Link></li>
+        <li className="font-medium text-[16px] leading-5 Color"><Link href={{pathname:'/candidate-registeration'}}>Candidate Reg</Link></li>
+        <li className="font-medium text-[16px] leading-5 Color"><Link href={{pathname:'/voters-registeration'}}>Voter Reg</Link></li>
+        <li className="font-medium text-[16px] leading-5 Color"><Link href={{pathname:'/voterList'}}>Voter List</Link></li>
+      </ul>
+    </div>
+    }
+    </div>
   );
 };
 
