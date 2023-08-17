@@ -16,7 +16,7 @@ const Navbar = () => {
 
     const { currentAccount, connectWallet } = useContext(VotingContext);
     return (
-        <div className="flex px-4 py-4 backgroundColor  justify-between items-center">
+        <div className="flex relative backgroundColor w-full py-4  justify-between items-center">
             <Link href={{pathname:"/"}}><Image src={Logo} alt="Logo" width={100} height={80} className="cursor-pointer"/></Link>
             {!currentAccount ? (
                 <button className="pinkBackground px-2 py-2 Color" onClick={connectWallet}>
