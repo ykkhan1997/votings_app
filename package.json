@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@metamask/detect-provider": "^2.0.0",
     "@nomicfoundation/hardhat-toolbox": "^3.0.0",
     "@openzeppelin/contracts": "^4.9.3",
     "autoprefixer": "10.4.15",

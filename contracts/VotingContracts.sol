@@ -151,6 +151,7 @@ contract Create {
         require(voter.voter_allowed>0,"You have no right to vote");
         voter.voter_allowed--;
         voter.voter_voted=true;
+        votedVoters.push(msg.sender);
         voter.voter_vote=_candidateVoterId;
         candidates[_candidateAddress].voteCount+=voter.voter_allowed;
         if(candidates[_candidateAddress].voteCount>candidates[winnerCandidate].voteCount){

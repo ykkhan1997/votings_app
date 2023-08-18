@@ -1,0 +1,63 @@
+.navbar{
+    width: 100%;
+    height: 5.5rem;
+    background-color: #231e39;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.35);
+    margin-bottom: 2rem;
+}
+
+.title{
+    cursor: pointer;
+}
+.navbar_box{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+.connect{
+    background-color: #9a02ac;
+    padding: .5rem 2rem;
+    border-radius: .2rem;
+    cursor: pointer;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.35);
+}
+.navigation{
+    position: absolute;
+    background-color: #9a02ac;
+    padding: 1rem;
+    width: 15rem;
+    left: .2;
+    top: 4rem;
+    border-radius: .2rem;
+    z-index:10;
+}
+.connect button {
+    background-color: transparent;
+    border: 0;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 600;
+}
+.connect_flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.connect span {
+    font-size: 2rem;
+    margin-left: 1rem;
+
+}
+@media screen and(max-width:35rem) {
+    .navbar{
+        width: 100%;
+        height: 5.5rem;
+    }
+    /* .navbar_box{
+        margin-top: 1rem;
+
+    } */
+}

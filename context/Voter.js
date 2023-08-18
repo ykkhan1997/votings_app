@@ -11,6 +11,7 @@ const VoterProvider = ({ children }) => {
   //Candidate Data
   const pushCandidate = [];
   const candidateInext = [];
+  const votedVoters=[];
   const [candidateLength, setCandidateLength] = useState(candidateInext);
   const [candidateArray, setCandidateArray] = useState(pushCandidate);
   const [currentAccount, setCurrentAccount] = useState("");
@@ -188,7 +189,13 @@ const VoterProvider = ({ children }) => {
       const provider = new ethers.BrowserProvider(window.ethereum);
       const signer = await provider.getSigner();
       const contract = fetchContract(signer);
-      const votedVoter=await contract.getVotedVoterList();
+      const Votes=await contract.getVotedVoterList();
+      for(let voted of Votes){
+        votedVoters.push(voted);
+      }
+      if(votedVoters.includes(voterAddress)){
+        toast.warn("Soory Your already voted");
+      }
       const voters = await contract.vote(voterAddress, voterId);
       voters.wait();
       toast.success("You give successfuly voted");
