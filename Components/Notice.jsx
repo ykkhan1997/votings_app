@@ -3,6 +3,7 @@ import Close from "./Close";
 const Notice = ({handleClick}) => {
 
   return (
+    <div className="relative flex items-center px-4 py-20 sm:max-w-sm sm:mx-auto md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       <div className="flex flex-wrap justify-center lg:top-20 top-40 right-0 lg:left-40 items-center overflow-x-hidden overflow-y-auto inset-0 z-50 mt-20 fixed outline-none">  
           <div className="relative  my-6 lg:w-[60%] h-auto w-full max-w-xl flex justify-center  bg-white bg-opacity-90">
         <div className="flex flex-col space-x-2 space-y-2">
@@ -35,6 +36,7 @@ const Notice = ({handleClick}) => {
       </div>
         
       
+    </div>
     </div>
   );
 };
