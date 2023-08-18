@@ -31,7 +31,7 @@ const Navbar = () => {
       </div>
      {
       opeNav && (
-        <div className='top-20 flex justify-end  flex-1 min-w-[140px] p-6 rounded absolute bg-[#9a02ac] z-10'>
+        <div className='top-20 flex justify-end  flex-1 min-w-[140px] p-6 rounded absolute bg-[#9a02ac]'>
         <ul className='Color font-medium space-y-2'>
         <p><Link href={{pathname:'/'}}>Home</Link></p>
         <p><Link href={{pathname:'candidate-registeration'}}>Candidate Registeration</Link></p>
