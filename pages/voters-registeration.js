@@ -95,7 +95,7 @@ const VoterRegisteration = () => {
                     <Button btnName={`Authorized Voter`} handleClick={()=>createVoter(formInput,fileUrl,router)}/>
                 </div>
             </div>
-            <div className='overflow-hidden h-[27rem] mr-10 mb-16 xl:mb-0  xl:w-1/3 rounded-2xl px-4 py-4 Color backgroundColor'>
+            <div className='overflow-hidden h-[27rem] w-full max-w-xl mr-10 mb-16 xl:mb-0  xl:w-1/3 rounded-2xl px-4 py-4 Color backgroundColor'>
                 <div className='flex flex-wrap space-y-2 flex-col items-center mt-5'>
                     <Image className='border border-dotted border-[#deace4] rounded-2xl' src={Image1} alt='Candidate Image' width={200} height={200}/>
                     <h4 className='mt-4 font-semibold tracking-wide'>Notice For User</h4>
