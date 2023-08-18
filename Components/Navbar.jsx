@@ -19,6 +19,7 @@ const Navbar = () => {
     }
   }
   return (
+    <div>
     <div className={`w-[100%] height-[5.5rem] bg-[#231e39] mb-[2rem] backgroundColor`}>
       <div className={` w-[80%] m-auto flex items-center justify-between text-white`}>
         <div className={`cursor-pointer`}>
@@ -45,16 +46,6 @@ const Navbar = () => {
                     )
                   }
                 </div>
-                {openNav && 
-                (
-                  <div className={`absolute bg-[#9a02ac] p-6 w-[15rem] top-[4rem] rounded-sm z-10`}>
-                    <p className='Color hover:text-white'><Link href={{pathname:'/'}}>Home</Link></p>
-                    <p className='Color hover:text-white'><Link href={{pathname:'candidate-registeration'}}>Candidate Registeration</Link></p>
-                    <p className='Color hover:text-white'><Link href={{pathname:'voters-registeration'}}>Voter Registeration</Link></p>
-                    <p className='Color hover:text-white'><Link href={{pathname:'voterList'}}>Voter List</Link></p>
-                  </div>
-                )
-                }
               </div>
             ):(
               <button onClick={()=>connectWallet()}>Connect Wallet</button>
@@ -63,6 +54,17 @@ const Navbar = () => {
         </div>
       </div>
     </div>
+    {openNav && 
+      (
+        <div className={`flex flex-col justify-end absolute bg-[#9a02ac] p-6 w-[15rem] top-[4rem] rounded-sm z-10`}>
+          <p className='Color hover:text-white'><Link href={{pathname:'/'}}>Home</Link></p>
+          <p className='Color hover:text-white'><Link href={{pathname:'candidate-registeration'}}>Candidate Registeration</Link></p>
+          <p className='Color hover:text-white'><Link href={{pathname:'voters-registeration'}}>Voter Registeration</Link></p>
+          <p className='Color hover:text-white'><Link href={{pathname:'voterList'}}>Voter List</Link></p>
+        </div>
+      )
+      }
+      </div>
   )
 }
 
