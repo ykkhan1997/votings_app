@@ -1,4 +1,6 @@
 import '@/styles/globals.css'
+import './styles.css';
+import './styles.css?ver=1';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import VoterProvider from '@/context/Voter';
