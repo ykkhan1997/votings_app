@@ -19,7 +19,7 @@ const Navbar = () => {
     }
   }
   return (
-    <div className={`{Style.navbar} w-[100%] height-[5.5rem] bg-[#231e39] mb-[2rem]`}>
+    <div className={`{Style.navbar} w-[100%] height-[5.5rem] bg-[#231e39] mb-[2rem] backgroundColor`}>
       <div className={`Style.navbar_box w-[80%] m-auto flex items-center justify-between text-white`}>
         <div className={`Style.title cursor-pointer`}>
           <Link href={{pathname:'/'}}>
