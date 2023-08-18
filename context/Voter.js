@@ -25,6 +25,10 @@ const VoterProvider = ({ children }) => {
   const [voterArray, setVoterArray] = useState(pushVoter);
   const [reSetting,setResetting]=useState(false);
   const [votingOrganizer,setVotingOrganizer]=useState("");
+  const [isMobile,setIsMobile]=useState(false);
+  useEffect(() => {
+    setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+  }, []);
   const checkIfWalletConnected = async () => {
     if (!window.ethereum) return setError("Please Install Web3 Wallet");
     const accounts = await window.ethereum.request({
@@ -37,15 +41,19 @@ const VoterProvider = ({ children }) => {
     }
   };
   const connectWallet=async()=>{
-    if(!window.ethereum){
-      toast.warn("Please Install Web3 Wallet and Connect");
-      return;
-    }
-    try{
-      const accounts=await window.ethereum.request({method:'eth_requestAccounts'});
-      setCurrentAccount(accounts[0]);
-    }catch(error){
-      toast.error("Failed to connect wallet"+error.message);
+    if (isMobile) {
+      alert('To connect your Metamask Mobile wallet, open the Metamask Mobile app and navigate to our DApp.');
+    }else{
+      if(!window.ethereum){
+        toast.warn("Please Install Web3 Wallet and Connect");
+        return;
+      }
+      try{
+        const accounts=await window.ethereum.request({method:'eth_requestAccounts'});
+        setCurrentAccount(accounts[0]);
+      }catch(error){
+        toast.error("Failed to connect wallet"+error.message);
+      }
     }
   }
   useEffect(()=>{
