@@ -6,16 +6,6 @@
     cursor: pointer;
     box-shadow: 10px 10px 10px rgba(0,0,0,0.35);
 }
-.navigation{
-    position: absolute;
-    background-color: #9a02ac;
-    padding: 1rem;
-    width: 15rem;
-    left: .2;
-    top: 4rem;
-    border-radius: .2rem;
-    z-index:10;
-}
 .connect button {
     background-color: transparent;
     border: 0;

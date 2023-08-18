@@ -47,7 +47,7 @@ const Navbar = () => {
                 </div>
                 {openNav && 
                 (
-                  <div className={`Style.navigation absolute bg-[#9a02ac] p-[1rem] w-[15rem] top-[4rem] rounded-sm z-10`}>
+                  <div className={`absolute bg-[#9a02ac] p-6 w-[15rem] top-[4rem] rounded-sm z-10`}>
                     <p className='Color hover:text-white'><Link href={{pathname:'/'}}>Home</Link></p>
                     <p className='Color hover:text-white'><Link href={{pathname:'candidate-registeration'}}>Candidate Registeration</Link></p>
                     <p className='Color hover:text-white'><Link href={{pathname:'voters-registeration'}}>Voter Registeration</Link></p>
