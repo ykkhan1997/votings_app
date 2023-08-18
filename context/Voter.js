@@ -252,6 +252,7 @@ const VoterProvider = ({ children }) => {
     getNewCandidate();
     getNewVoterData();
     getWinnerCandidate();
+    connectWallet();
   },[]);
   useEffect(()=>{
     const getOrganizer=async()=>{
