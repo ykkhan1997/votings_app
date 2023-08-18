@@ -29,7 +29,7 @@ const Notice = ({handleClick}) => {
               Voting Register</a> then the registered
             person have right to give vote to any candidate according to their
             choice <a href="http://localhost:3000/" className="font-bold">Vote to Candidate </a>
-            <a className="font-bold" href="https://sepolia.etherscan.io/address/0x695Cbde29F2a4c39Ca0eaABd40F75Ee3BB38aC7D#code">See Contract Verification</a>
+            <a className="font-bold" href="https://sepolia.etherscan.io/address/0x30741e81aF32e8Ae1EfbFEA2a6A62159fE8BF540#code">See Contract Verification</a>
           </p>
         </div>
       </div>
