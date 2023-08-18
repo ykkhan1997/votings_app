@@ -15,14 +15,15 @@ const VoterRegisteration = () => {
     });
     const router=useRouter();
     const [fileUrl,setFileUrl]=useState();
-    const onDrop=useCallback(async(acceptedFile)=>{
-        try{
-            const url=await uploadToIpfs(acceptedFile[0]);
-        setFileUrl(url)
-        }catch(error){
-            console.log("Something Wrong while setting file Url");
+    const onDrop = useCallback(async (acceptedFile) => { 
+        if(currentAccount!=votingOrganizer){
+          toast.warn("Only Organizer can upload Image on ipfs");
         }
-    });
+        else{
+          const url = await uploadToIpfs(acceptedFile[0]);
+          setFileUrl(url);
+        }
+      });
     const {getRootProps,getInputProps}=useDropzone({
         onDrop,
         // accept:"image/*",

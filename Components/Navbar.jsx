@@ -27,7 +27,9 @@ const Navbar = () => {
             :
             (<button className='Color bg-[#9a02ac] px-2 py-2 rounded font-medium tracking-wide' onClick={()=>connectWallet()}>Connect Wallet</button>)
           }
-          <div
+          {
+            currentAccount && (
+              <div
           className={`${toogle?"flex":"hidden"} p-6 absolute bg-[#9a02ac] top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl z-10 lg:hidden flex`}>
             <ul className='list-none flex-col justify-end items-center flex-1'>
             <li className='text-[16px] font-medium Color active:text-white'><Link href={{pathname:'/'}}>Home</Link></li>
@@ -36,6 +38,8 @@ const Navbar = () => {
               <li className='text-[16px] font-medium Color active:text-white'><Link href={{pathname:'voterList'}}>Voter List</Link></li>
             </ul>
           </div>
+            )
+          }
          </div>
         </div>
       </div>

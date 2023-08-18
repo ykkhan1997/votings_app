@@ -6,8 +6,10 @@ import { useDropzone } from "react-dropzone";
 import Image from "next/image";
 import { Image1,Upload } from "@/assets";
 import { Button, Input } from "@/Components";
+import { toast } from "react-toastify";
 const CandidateRegisteration= () => {
-  const { setCandidate, uploadToIpfs,candidateArray}=useContext(VotingContext);
+  const { setCandidate, uploadToIpfs,candidateArray,votingOrganizer,currentAccount}=useContext(VotingContext);
+  
   const [fileUrl, setFileUrl] = useState("");
   const [candidateForm, setCandidateForm] = useState({
     name: "",
@@ -16,8 +18,13 @@ const CandidateRegisteration= () => {
     deadline: "",
   });
   const onDrop = useCallback(async (acceptedFile) => { 
+    if(currentAccount!=votingOrganizer){
+      toast.warn("Only Organizer can upload Image on ipfs");
+    }
+    else{
       const url = await uploadToIpfs(acceptedFile[0]);
       setFileUrl(url);
+    }
   });
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
