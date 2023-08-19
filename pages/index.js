@@ -43,23 +43,12 @@ const Home = () => {
                 No. Voter:{voterLength}
               </p>
             </div>
-            {winnerArray?.map((el, i) => (
-              <div key={i + 1} className="px-2 py-2 backgroundColor rounded">
-                {Number(el[6]) !== 0 ? (
-                  <Countdown
-                    className="bg-[#9a02ac] px-2 py-1"
-                    date={Number(el[6])}
-                  />
-                ) : (
-                  <button
-                    className="bg-[#9a02ac] px-2 py-2 rounded Color tracking-wide"
-                    onClick={() => router.push("/winner")}
-                  >
-                    See Winner Candidate
-                  </button>
-                )}
-              </div>
-            ))}
+            <button
+              className="bg-[#9a02ac] px-2 py-2 rounded Color tracking-wide"
+              onClick={() => router.push("/winner")}
+            >
+              See Winner Candidate
+            </button>
             <div className="rounded text-center text-3xl bg-[#9a02ac] bg-opacity-30 Color  w-full max-w-xl  lg:w-1/6 border border-solid border-[#9a02ac] px-2 py-2 h-15 items-center overflow-hidden xl:ml-16 ml-2">
               {formattedTime}
             </div>
