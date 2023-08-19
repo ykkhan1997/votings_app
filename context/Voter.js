@@ -11,7 +11,6 @@ const VoterProvider = ({ children }) => {
   //Candidate Data
   const pushCandidate = [];
   const candidateInext = [];
-  const votedVoters=[];
   const [candidateLength, setCandidateLength] = useState(candidateInext);
   const [candidateArray, setCandidateArray] = useState(pushCandidate);
   const [currentAccount, setCurrentAccount] = useState("");
@@ -113,14 +112,13 @@ const VoterProvider = ({ children }) => {
         fileUrl,
         ipfs
       );
-      candidate.wait();
-      router.push("/");
-      toast.success("Successfully Created Candidate");
+      router.push("/");candidate.wait();
       setTimeout(() => {
         window.location.reload();
-      }, 5000);
+      }, 10000);
+      toast.success("Successfully Created Candidate");
     } catch (error) {
-      toast.warn("Something wrong while setCandidate");
+      toast.warn(error.message.match(/"(.*?)"/)[1]);
       console.log(error);
     }
   };
@@ -137,8 +135,7 @@ const VoterProvider = ({ children }) => {
         setCandidateLength(Number(getCandidateLength));
       });
     } catch (error) {
-      toast.warn("Something Wrong while fetching candidateData");
-      console.log(error, "Something Wrong while fetching candidateData");
+      toast.warn(error.message.match(/"(.*?)"/)[1]);
     }
   };
   const createVoter = async (formInput, fileUrl, router) => {
@@ -158,9 +155,9 @@ const VoterProvider = ({ children }) => {
       router.push("/voterList");
       setTimeout(() => {
         window.location.reload();
-      }, 5000);
+      }, 10000);
     } catch (error) {
-      toast.warn("Something wrong while creating voter");
+      toast.warn(error.message.match(/"(.*?)"/)[1]);
     }
   };
   const getNewVoterData = async () => {
@@ -179,7 +176,7 @@ const VoterProvider = ({ children }) => {
         pushVoter.push(singleVoterData);
       }
     } catch (error) {
-      currentAccount && toast.warn("Something wrong while fetching voterData");
+      currentAccount && toast.warn(error.message.match(/"(.*?)"/)[1]);
       console.log(error);
     }
   };
@@ -190,22 +187,15 @@ const VoterProvider = ({ children }) => {
       const provider = new ethers.BrowserProvider(window.ethereum);
       const signer = await provider.getSigner();
       const contract = fetchContract(signer);
-      const Votes=await contract.getVotedVoterList();
-      for(let voted of Votes){
-        votedVoters.push(voted);
-      }
-      if(votedVoters.includes(voterAddress)){
-        toast.warn("Soory Your already voted");
-      }
       const voters = await contract.vote(voterAddress, voterId);
       voters.wait();
       toast.success("You give successfuly voted");
       console.log("You give successfuly voted");
       setTimeout(() => {
         window.location.reload();
-      }, 5000);
+      }, 10000);
     } catch (error) {
-      console.log(error);
+      toast.warn(error.message.match(/"(.*?)"/)[1]);
     }
   };
   const getWinnerCandidate=async()=>{

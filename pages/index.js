@@ -3,11 +3,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { VotingContext } from "@/context/Voter";
 import Countdown from "react-countdown";
 import Card from "@/Components/Card";
-import {Notice } from "@/Components";
-import {useRouter} from "next/navigation";
+import { Notice } from "@/Components";
+import { useRouter } from "next/navigation";
 const Home = () => {
-  const [showBanner,setShowBanner]=useState(false);
-  const router=useRouter();
+  const [showBanner, setShowBanner] = useState(false);
+  const router = useRouter();
 
   const {
     currentAccount,
@@ -16,20 +16,20 @@ const Home = () => {
     giveVote,
     candidateArray,
     formattedTime,
-    winnerArray
+    winnerArray,
   } = useContext(VotingContext);
-  useEffect(()=>{
+  useEffect(() => {
     // const hasShowNotice=localStorage.getItem('hasShownNotice');
     // if(!hasShowNotice){]
     setShowBanner(true);
-      const timeId=setTimeout(() => {
-        setShowBanner(false);
-      }, 10000);
-      
-      return ()=>clearTimeout(timeId);
-      // localStorage.setItem('hasShownNotice','true');
+    const timeId = setTimeout(() => {
+      setShowBanner(false);
+    }, 10000);
+
+    return () => clearTimeout(timeId);
+    // localStorage.setItem('hasShownNotice','true');
     // }
-  },[]);
+  }, []);
   return (
     <div className="relative overflow-hidden px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="70%">
@@ -43,17 +43,30 @@ const Home = () => {
                 No. Voter:{voterLength}
               </p>
             </div>
-            {winnerArray?.map((el,i)=>(<div key={i+1} className="px-2 py-2 backgroundColor rounded">{el[6].length?(<Countdown className="bg-[#9a02ac] px-2 py-1" date={Number(el[6])}/>):(<button className="bg-[#9a02ac] px-2 py-2 rounded Color tracking-wide" onClick={()=>router.push('/winner')}>See Winner Candidate</button>)}</div>))}
+            {winnerArray?.map((el, i) => (
+              <div key={i + 1} className="px-2 py-2 backgroundColor rounded">
+                {Number(el[6]) !== 0 ? (
+                  <Countdown
+                    className="bg-[#9a02ac] px-2 py-1"
+                    date={Number(el[6])}
+                  />
+                ) : (
+                  <button
+                    className="bg-[#9a02ac] px-2 py-2 rounded Color tracking-wide"
+                    onClick={() => router.push("/winner")}
+                  >
+                    See Winner Candidate
+                  </button>
+                )}
+              </div>
+            ))}
             <div className="rounded text-center text-3xl bg-[#9a02ac] bg-opacity-30 Color  w-full max-w-xl  lg:w-1/6 border border-solid border-[#9a02ac] px-2 py-2 h-15 items-center overflow-hidden xl:ml-16 ml-2">
               {formattedTime}
             </div>
-           
           </div>
         )}
-        <Card candidateArray={candidateArray}  giveVote={giveVote}/>
-        {
-          showBanner && <Notice handleClick={()=>setShowBanner(false)}/>
-        }
+        <Card candidateArray={candidateArray} giveVote={giveVote} />
+        {showBanner && <Notice handleClick={() => setShowBanner(false)} />}
       </div>
     </div>
   );

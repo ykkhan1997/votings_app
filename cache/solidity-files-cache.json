@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\IT\\Dropbox\\PC (2)\\Desktop\\Learning Purpose\\votings_app\\contracts\\VotingContracts.sol": {
-      "lastModificationDate": 1692341913179,
-      "contentHash": "dadb8cc8badc2b044e709c46b1668cf6",
+      "lastModificationDate": 1692436214129,
+      "contentHash": "f71f3eb53fa2a56038a2e1e90db9442c",
       "sourceName": "contracts/VotingContracts.sol",
       "solcConfig": {
         "version": "0.8.19",

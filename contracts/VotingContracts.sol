@@ -147,9 +147,7 @@ contract Create {
     function vote(address _candidateAddress,uint256 _candidateVoterId)external{
         Voter storage voter=voters[msg.sender];
         require(!voter.voter_voted,"You have already voted");
-        voter.voter_allowed++;
         require(voter.voter_allowed>0,"You have no right to vote");
-        voter.voter_allowed--;
         voter.voter_voted=true;
         votedVoters.push(msg.sender);
         voter.voter_vote=_candidateVoterId;

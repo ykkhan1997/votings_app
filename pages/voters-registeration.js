@@ -6,8 +6,9 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Image1, Upload } from '@/assets';
 import { Button, Input } from '@/Components';
+import { toast } from 'react-toastify';
 const VoterRegisteration = () => {
-    const {uploadToIpfs,createVoter,voterArray}=useContext(VotingContext);
+    const {uploadToIpfs,createVoter,voterArray,currentAccount,votingOrganizer}=useContext(VotingContext);
     const [formInput,setFormInput]=useState({
         name:"",
         position:"",
